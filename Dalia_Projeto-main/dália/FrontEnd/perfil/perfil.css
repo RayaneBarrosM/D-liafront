@@ -21,13 +21,6 @@
     
 }
 
-@media(color-scheme: dark){
-    :root{
-        --fundo: #43393D;
-        --font-color: #000;
-    }
-}
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -74,6 +67,7 @@ header {
 nav ul {
     display: flex;
     list-style: none;
+    align-items: center;
     gap: 20px;
 
     li a {
@@ -99,6 +93,7 @@ nav ul {
 }
 
 main {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-self: center;
@@ -108,7 +103,6 @@ main {
 
 .container{
     width: 100%;
-    height: 100vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -116,6 +110,17 @@ main {
     margin: 0 auto; 
     margin-top: 1%;
     gap: 10px;
+}
+
+.configurações{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+.conf {
+    align-items: end;
+    border: none;
+    background: none;
 }
 
 .perfil {
@@ -155,8 +160,6 @@ input {
     width: 490px;
     padding: 0 20px;
     border-radius: 20px;
-    /*height: 41px;
-    width: 372px;*/
 }
 
 .drop-down{
@@ -197,6 +200,13 @@ select{
     padding: 0px 26px;
     border-color: transparent;
     border-radius: 20px;
+
+}
+
+.funcionalidade a {
+    text-decoration: none;
+    color: inherit;
+    
 }
 
 .funcionalidade:hover{
@@ -249,6 +259,7 @@ select{
 }
 
 .footer {
+    width: 100%;
     background-color: white;
     padding: 20px 0;
     text-align: center;
@@ -347,19 +358,6 @@ section a {
     cursor: pointer;
 }
 
-#confirmar-gravidez {
-    background-color: var(--botao-confirmacao);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    margin-top: 1rem;
-}
-
-#confirmar-gravidez:hover {
-    box-shadow: 0 4px 8px #6e6e6e65;
-}
-
 .modal-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -387,22 +385,47 @@ section a {
 
 .modal-imagem img {
     width: 100%;
-    height: auto;
+    height: 84.2%;
     border-radius: 10px;
     grid-row: 2;
 }
 
+#confirmar-gravidez {
+    background-color: var(--botao-confirmacao);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+#confirmar-gravidez:hover {
+    box-shadow: 0 4px 8px #6e6e6e65;
+}
+
+.dark-mode .no-darkmode,
+.dark-mode .no-darkmode * {
+    all: revert !important; 
+}
+
+.no-darkmode .modal-content {
+    color: #000;
+}
+
+.no-darkmode img {
+    filter: none !important;
+}
 
 @media screen and (min-width: 1024px) {
     main {
         display: flex;
         justify-content: center;
-        margin: 90px 0;
+        margin: 90px 0 10rem;
     }
 
     .container-registro{
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 100px;
         grid-template-rows: 1 ; 
         gap: 3rem;
         align-items: start;

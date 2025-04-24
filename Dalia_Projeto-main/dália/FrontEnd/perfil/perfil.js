@@ -85,6 +85,7 @@ document.getElementById('salvar').addEventListener('click', function () {
     }
 });
 
+//denuncia
 document.getElementById('denuncia-button').addEventListener('click', function () {
     const popup = document.getElementById('popup');
     popup.style.display = 'block';
@@ -101,6 +102,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-let dark-mode-toggle = document.getElementById('dark-mode')
 
-dark-mode-toggle.addEventListener('click', function )
+document.addEventListener('DOMContentLoaded', () => {
+  const acionarBtn = document.getElementById('acionar-gravidez');
+  const modal = document.getElementById('modal-gravidez' 'modal-denuncia');
+  const closeBtn = document.querySelector('.close');
+  const confirmarBtn = document.getElementById('confirmar-gravidez' 'confirmar-denuncia');
+
+  // Abrir modal
+  acionarBtn.onclick = () => modal.style.display = 'flex';
+
+  // Fechar modal
+  closeBtn.onclick = () => modal.style.display = 'none';
+
+  // Confirmar modo gravidez
+  confirmarBtn.onclick = () => {
+    localStorage.setItem('modoGravidez', 'ativo');
+    modal.style.display = 'none';
+    acionarBtn.textContent = 'Modo Gravidez (Ativo)';
+    acionarBtn.style.backgroundColor = '#d4a5c4';
+  };
+
+  confirmarBtn.onclick = () => {
+    localStorage.setItem('modoDenuncia', 'ativo');
+    modal.style.display = 'none';
+    acionarBtn.textContent = 'modo Denuncia (Ativo)';
+    acionarBtn.style.backgroundColor = '#d4a5c4';
+  };
+
+  // Checar se já está ativo
+  if (localStorage.getItem('modoGravidez') === 'ativo') {
+    acionarBtn.textContent = 'Modo Gravidez (Ativo)';
+    acionarBtn.style.backgroundColor = '#d4a5c4';
+  }
+});
+
