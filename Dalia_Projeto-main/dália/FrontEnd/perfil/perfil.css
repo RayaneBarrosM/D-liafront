@@ -257,7 +257,7 @@ select{
     cursor: pointer;
     transition: transform 03s ease;
 }
-
+/*---footer---*/
 .footer {
     width: 100%;
     background-color: white;
@@ -325,7 +325,7 @@ section a {
     text-decoration: underline;
 }
 
-/* Estilo do Modal (pop-up) */
+/*----------------------MODAIS-------------------------*/
 .modal {
     height: 100%;
     width: 100%;
@@ -339,15 +339,9 @@ section a {
     z-index: 1000;
 }
 
-.modal-content {
-    width: 1013px;
-    max-width: 1013px;
-    max-height: 758px;
-    background-color: var(--botao-gravidez);
-    padding: 0 0 2;
-    border-radius: 20px;
-    text-align: center;
-    position: relative;
+.modal.active {
+    display: flex;
+    align-items: center;
 }
 
 .close {
@@ -358,14 +352,6 @@ section a {
     cursor: pointer;
 }
 
-.modal-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    align-items: center;
-    gap: 3rem;
-}
-
 .modal-texto {
     height: 100%;
     display: flex;
@@ -374,6 +360,63 @@ section a {
     padding: 3rem 5rem 0rem 0rem;
     grid-column: 2;
     gap: 2.5rem;
+}
+
+/*--Modal de denuncia--*/
+.alinhador{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-content-denuncia{
+    width: 400px; 
+    height: 300px; 
+    align-items: center; 
+    background-color: var(--botao-gravidez);
+    border-radius: 20px;
+    position: relative;
+}
+
+.modal-grid-denuncia{
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    
+}
+
+#confirmar-denuncia {
+    background-color: var(--botao-confirmacao);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+}
+
+#confirmar-denuncia:hover {
+    box-shadow: 0 4px 8px #6e6e6e65;
+}
+
+/*--Modal-gravidez (pop-up)--*/
+
+.modal-content-gravidez {
+    width: 1013px;
+    height: 758px;
+    background-color: var(--botao-gravidez);
+    padding: 0 0 2;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+}
+
+
+.modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    gap: 3rem;
 }
 
 .modal-imagem {
@@ -403,8 +446,11 @@ section a {
     box-shadow: 0 4px 8px #6e6e6e65;
 }
 
+/* ===== MODO NOTURNO ===== */
 .dark-mode .no-darkmode,
 .dark-mode .no-darkmode * {
+    align-items: center; 
+    display: flex;
     all: revert !important; 
 }
 
@@ -457,5 +503,3 @@ section a {
     }
 
 }
-
-/* ===== MODO NOTURNO ===== */

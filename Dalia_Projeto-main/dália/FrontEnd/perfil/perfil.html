@@ -19,7 +19,7 @@
         </div>
         <nav>
             <ul>
-                <li class="Home"><a href="../home/index.html"><img src="./img/navbar/Home__nav.svg" alt=""></a></li>
+                <li class="Home"><a href="../home/index.html"><img src="./img/navbar/Home__nav.svg" alt="home"></a></li>
                 <li class="Calendario"><a href="../calendario/calendario.html"><img src="./img/navbar/Calendar__nav.svg"></a></li>
                 <li class="forum"><a href="../forum/forum.html"><img src="./img/navbar/Fórum__nav.svg"></a></li>
                 <li class="principal"><a href="../principal/principal.html"><img src="./img/navbar/Flower__nav.svg" alt=""></a></li>
@@ -31,25 +31,26 @@
         <div class="container">
             <div class="container-registro">
                 <div class="configurações">
-                    <button class="conf" id="denuncia-button"><img src="../perfil/img/perfil_img/Botão alerta.svg" alt=""></button>
+                    <button class="conf" id="denuncia-button"><img src="../perfil/img/perfil_img/Botão alerta.svg" alt="icon denuncia"></button>
                  </div>
                  <div class="modal no-darkmode" id="modal-denuncia">
-                    <div class="modal-content">
-                        <span class="close" alt="fechar">&times;</span>
-                        <div class="modal">
-                            <div class="modal-texto">
-                            <h2>Alerta</h2>
-                            <p>
-                                Confirme se voce quer denunciar uma agressão
-                            </p>
-                            <button id="confirmar-denuncia">Confirmar</button>
-                        </div>
+                    <div class="alinhador">
+                        <div class="modal-content-denuncia">
+                            <span class="close" alt="fechar">&times;</span>
+                            <div class="modal-grid-denuncia">
+                                <div class="modal-texto">
+                                    <h2>Alerta</h2>
+                                    <p>
+                                        Confirme se voce quer denunciar uma agressão
+                                    </p>
+                                    <button id="confirmar-denuncia">Confirmar</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                 </div>
+                    </div>
                 <h1 class="titulo">Área do usuário</h1>
                 <div class="perfil">
-                    <span class="conf" id="denuncia-button"></span>
                     <div class="user-img">
                         <img src="./img/perfil_img/perfil.png" id="foto" class="perfil__foto" alt="imagem de perfil">
                         <label for="input-file" id="uploadft"><img src="./img/perfil_img/editsvg.svg" class="edit-icon"></label>
@@ -87,7 +88,7 @@
                     
                 </div>
                 <div class="modal no-darkmode" id="modal-gravidez">
-                    <div class="modal-content">
+                    <div class="modal-content-gravidez">
                         <span class="close" alt="fechar">&times;</span>
                         <div class="modal-grid">
                             <div class="modal-texto">

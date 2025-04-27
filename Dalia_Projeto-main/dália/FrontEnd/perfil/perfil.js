@@ -86,54 +86,81 @@ document.getElementById('salvar').addEventListener('click', function () {
 });
 
 //denuncia
-document.getElementById('denuncia-button').addEventListener('click', function () {
-    const popup = document.getElementById('popup');
-    popup.style.display = 'block';
-
-    const closeBtn = document.querySelector('.close');
-    closeBtn.onclick = function () {
-        popup.style.display = 'none';
-    }
-});
-
 document.addEventListener('DOMContentLoaded', () => {
+    // Evento do botão de denúncia
+    document.getElementById('denuncia-button').addEventListener('click', function() {
+        const modalDenuncia = document.getElementById('modal-denuncia');
+        if (modalDenuncia) {
+            modalDenuncia.style.display = 'block';
+        }
+    });
+
+    // Evento de fechar (agora genérico para todos os modais)
+    document.querySelectorAll('.close').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const modal = this.closest('.modal');
+            if (modal) modal.style.display = 'none';
+        });
+    });
+
     if (idUser) {
         fetchUserDetails(idUser);
     }
 });
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  const acionarBtn = document.getElementById('acionar-gravidez');
-  const modal = document.getElementById('modal-gravidez' 'modal-denuncia');
-  const closeBtn = document.querySelector('.close');
-  const confirmarBtn = document.getElementById('confirmar-gravidez' 'confirmar-denuncia');
 
-  // Abrir modal
-  acionarBtn.onclick = () => modal.style.display = 'flex';
+// Modo Gravidez - Adicione estas funções
+async function activatePregnancyMode(userId) {
+    try {
+        const response = await fetch(`http://localhost:3333/user/pregnancy/${userId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ pregnancy_mode: true })
+        });
 
-  // Fechar modal
-  closeBtn.onclick = () => modal.style.display = 'none';
+        if (!response.ok) {
+            throw new Error(`Erro ao ativar modo gravidez: ${response.status}`);
+        }
 
-  // Confirmar modo gravidez
-  confirmarBtn.onclick = () => {
-    localStorage.setItem('modoGravidez', 'ativo');
-    modal.style.display = 'none';
-    acionarBtn.textContent = 'Modo Gravidez (Ativo)';
-    acionarBtn.style.backgroundColor = '#d4a5c4';
-  };
+        const data = await response.json();
+        console.log('Modo gravidez ativado com sucesso:', data);
+        alert('Modo gravidez ativado com sucesso!');
+        // Redirecionar ou atualizar a interface conforme necessário
+        window.location.href = '../gravidez/gravidez.html'; // Adapte para sua rota
+    } catch (error) {
+        console.error('Erro ao ativar modo gravidez:', error);
+        alert('Erro ao ativar modo gravidez');
+    }
+}
 
-  confirmarBtn.onclick = () => {
-    localStorage.setItem('modoDenuncia', 'ativo');
-    modal.style.display = 'none';
-    acionarBtn.textContent = 'modo Denuncia (Ativo)';
-    acionarBtn.style.backgroundColor = '#d4a5c4';
-  };
+// Evento para o botão de confirmação no modal
+document.getElementById('acionar-gravidez').addEventListener('click', function() {
+    const modalGravidez = document.getElementById('modal-gravidez');
+    if (modalGravidez) {
+        modalGravidez.style.display = 'flex';
+    }
+});
+// Evento para abrir o modal de gravidez (já existe no seu HTML)
+document.getElementById('acionar-gravidez').addEventListener('click', function() {
+    document.getElementById('modal-gravidez').style.display = 'flex';
+});
 
-  // Checar se já está ativo
-  if (localStorage.getItem('modoGravidez') === 'ativo') {
-    acionarBtn.textContent = 'Modo Gravidez (Ativo)';
-    acionarBtn.style.backgroundColor = '#d4a5c4';
-  }
+// Fechar modal ao clicar no X (melhoria para todos os modais)
+document.querySelectorAll('.close').forEach(btn => {
+    btn.addEventListener('click', function() {
+        this.closest('.modal').style.display = 'none';
+    });
+});
+
+// Fechar modal ao clicar fora do conteúdo
+document.querySelectorAll('.modal').forEach(modal => {
+    modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+            this.style.display = 'none';
+        }
+    });
 });
 
