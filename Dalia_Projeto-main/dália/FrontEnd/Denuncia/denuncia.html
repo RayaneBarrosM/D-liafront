@@ -77,5 +77,41 @@
         </div>
     </footer>
 </body>
-
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+    // Cria o botão de toggle
+    const menuToggle = document.createElement('div');
+    menuToggle.className = 'menu-toggle';
+    menuToggle.innerHTML = '☰';
+    
+    // Cria o container do dropdown
+    const dropdownMenu = document.createElement('div');
+    dropdownMenu.className = 'dropdown-menu';
+    
+    // Clona o menu existente para dentro do dropdown
+    const navClone = document.querySelector('nav ul').cloneNode(true);
+    dropdownMenu.appendChild(navClone);
+    
+    // Adiciona os elementos ao header
+    const header = document.querySelector('header');
+    header.appendChild(menuToggle);
+    header.appendChild(dropdownMenu);
+    
+    // Adiciona evento de clique
+    menuToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdownMenu.classList.toggle('show');
+    });
+    
+    // Fecha o menu ao clicar fora
+    document.addEventListener('click', function() {
+        dropdownMenu.classList.remove('show');
+    });
+    
+    // Previne que o clique no menu feche ele
+    dropdownMenu.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+});
+</script>
 </html>

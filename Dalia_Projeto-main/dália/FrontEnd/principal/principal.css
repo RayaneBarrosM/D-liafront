@@ -3,13 +3,14 @@
     --peso-titulo: 500; 
     --peso-subTitulo: 500; 
     --peso-texto: 400;
-    --tamanho-titulo: 3rem;
-    --tamanho-subtitulo: 2rem;
-    --tamanho-texto: 1.5rem;
-    --tamanho-texto-botão: 1.2rem;
-    --tamanho-titulo-telasgrandes: 3.5rem;
-    --tamanho-subtitulo-telasgrandes: 2.5rem;
-    --tamanho-texto-telasgrandes: 1.8rem;
+    --tamanho-titulo: 2rem;
+    --tamanho-subtitulo: 1.5rem;
+    --tamanho-texto: 1.25rem;
+    --tamanho-texto-botão: 1rem;
+    --tamanho-titulo-telasgrandes: 3rem;
+    --tamanho-subtitulo-telasgrandes: 2rem;
+    --tamanho-texto-telasgrandes: 1.5rem;
+    --tamanho-texto-botão-telasgrandes:1.2rem;
     --fundo: #FFF2EC;
     
 }
@@ -55,33 +56,82 @@ header {
     border-bottom: 1px solid #000000;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+/*nav*/
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
 
-    li a {
-        text-decoration: none;
-        color: #333;
+        img {
+            width: 30px;
+        }
     }
+
+    .logo img {
+        margin-top: 2%;
+        width: 65px;
+    }
+
+/*drop*/
+    .nav-container {
+    position: relative;
 }
 
-
-.logo img {
-    margin-top: 2%;
-    width: 80px;
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px;
 }
 
 .dropdown-menu {
-    margin: 46% 0% 0% -690%;
-    padding: 70% 200% 240% 250%;
     display: none;
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-image: url(/img/navbar/Gradient.png);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--fundo);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 10px;
+    white-space: nowrap;
 }
+
+.dropdown-menu.show {
+    display: flex;
+    animation: slideIn 0.3s ease-out;
+}
+
+.dropdown-menu ul {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu ul li a img {
+    width: 30px;
+    height: 30px;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+nav ul {
+        display: none;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
 
 .main{
     align-self: center;
@@ -210,6 +260,31 @@ nav ul {
     color: var(--fundo);
 }
 
+@media screen and (min-width: 768px) {
+
+    h1 {
+        font-weight: var(--tamanho-titulo-telasgrandes);
+    }
+
+    h2 {
+        font-size: var(--tamanho-subtitulo-telasgrandes);
+    }
+
+    p {
+        font-size: var(--tamanho-texto-telasgrandes);
+    }
+
+    .logo img {
+            margin-top: 2%;
+            width: 80px;
+        }
+    nav ul {
+        display: flex !important;
+    }
+    .menu-toggle {
+        display: none !important;
+    }
+}
 
 @media screen and (min-width: 1024px) {
 
