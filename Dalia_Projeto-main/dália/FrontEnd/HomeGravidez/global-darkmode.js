@@ -75,6 +75,11 @@
             color: #fff;
         }
         
+        .modo-escuro .registro h1,
+        .modo-escuro .registro h2 {
+            color: #000000 !important;
+        }
+        
         .modo-escuro h1 {
             border-bottom-color: #fff;
         }

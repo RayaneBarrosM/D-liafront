@@ -1,0 +1,40 @@
+import React, { useState } from 'react';
+import './App.css';
+
+function App() {
+  const [activeDay, setActiveDay] = useState('today');
+
+  const handleToggle = () => {
+    setActiveDay(activeDay === 'today' ? 'yesterday' : 'today');
+  };
+
+  return (
+    <div className="app">
+      <h1>Seletor de Dias</h1>
+      
+      <div className="days-container">
+        {/* Retângulo de ontem */}
+        <div 
+          className={`day-rectangle ${activeDay === 'yesterday' ? 'active' : 'inactive-left'}`}
+        >
+          <h2>Ontem</h2>
+          <p>{new Date(Date.now() - 86400000).toLocaleDateString()}</p>
+        </div>
+        
+        {/* Retângulo de hoje */}
+        <div 
+          className={`day-rectangle ${activeDay === 'today' ? 'active' : 'inactive-right'}`}
+        >
+          <h2>Hoje</h2>
+          <p>{new Date().toLocaleDateString()}</p>
+        </div>
+      </div>
+      
+      <button onClick={handleToggle} className="toggle-button">
+        Alternar Dias
+      </button>
+    </div>
+  );
+}
+
+export default App;

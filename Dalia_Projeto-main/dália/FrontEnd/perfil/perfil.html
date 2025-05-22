@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <title>Perfil</title>
     <link rel="shortcut icon" type="imagex/png" href="./img/navbar/dália_secundario.png">
-
+    <script src="perfil-darkmode.js"></script>
 </head>
 <body>
     <header>
@@ -20,10 +20,10 @@
         <nav>
             <ul>
                 <li class="Home"><a href="../home/index.html"><img src="./img/navbar/Home__nav.svg" alt="home"></a></li>
-                <li class="Calendario"><a href="../calendario/calendario.html"><img src="./img/navbar/Calendar__nav.svg"></a></li>
-                <li class="forum"><a href="../forum/forum.html"><img src="./img/navbar/Fórum__nav.svg"></a></li>
-                <li class="principal"><a href="../principal/principal.html"><img src="./img/navbar/Flower__nav.svg" alt=""></a></li>
-                <li class="perfil"><a href="../perfil/perfil.html"><img src="./img/navbar/profile-full__nav.svg"></a></li>
+                <li class="Calendario"><a href="../calendario/calendario.html"><img src="./img/navbar/Calendar__nav.svg" alt="calendario"></a></li>
+                <li class="forum"><a href="../forum/forum.html" alt="fórum"><img src="./img/navbar/Fórum__nav.svg"></a></li>
+                <li class="principal"><a href="../principal/principal.html" alt="diario"><img src="./img/navbar/Flower__nav.svg" alt=""></a></li>
+                <li class="perfil"><a href="../perfil/perfil.html" alt="perfil"><img src="./img/navbar/profile-full__nav.svg"></a></li>
             </ul>
         </nav>
     </header>
@@ -31,7 +31,7 @@
         <div class="container">
             <div class="container-registro">
                 <div class="configurações">
-                    <button class="conf" id="denuncia-button"><img src="../perfil/img/perfil_img/Botão alerta.svg" alt="icon denuncia"></button>
+                    <button class="conf" id="denuncia-button"><img src="../perfil/img/perfil_img/Botão alerta.svg" alt="realizar denuncia"></button>
                  </div>
                  <div class="modal no-darkmode" id="modal-denuncia">
                     <div class="alinhador">
@@ -52,7 +52,7 @@
                 <h1 class="titulo">Área do usuário</h1>
                 <div class="perfil">
                     <div class="user-img">
-                        <img src="./img/perfil_img/perfil.png" id="foto" class="perfil__foto" alt="imagem de perfil">
+                        <img src="./img/perfil_img/perfil.png" id="foto" class="perfil__foto" alt="foto de perfil">
                         <label for="input-file" id="uploadft"><img src="./img/perfil_img/editsvg.svg" class="edit-icon"></label>
                         <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file" style="display:none;">
                     </div>
@@ -92,8 +92,8 @@
                         <span class="close" alt="fechar">&times;</span>
                         <div class="modal-grid">
                             <div class="modal-texto">
-                            <div>
-                                <img src="./img/navbar/Logo_dalia.png" alt="Logo">
+                            <div class="logo">
+                                <img src="./navbar/Logo_dalia.png" alt="Logo">
                             </div>
                             <h2>Modo Gravidez</h2>
                             <p>
@@ -116,7 +116,7 @@
         <div class="footer-content">
             <img src="./img/navbar/Logo_dalia.png" alt="logo dália" class="footer-logo">
             <div class="language-selector">
-                <img src="./img/home_img/bandeira.png" alt="bandeira brasil">
+                <img src="./img/perfil_img/bandeira.png" alt="bandeira do brasil">
                 <span>Português do Brasil</span>
             </div>
             <div class="social-media"> 
@@ -164,7 +164,8 @@
 new window.VLibras.Widget('https://vlibras.gov.br/app');
 </script>
 <script src="perfil.js"></script>
-<script src="perfil-darkmode.js"></script>
+
+<script src="global-darkmode.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
